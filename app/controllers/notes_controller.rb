@@ -12,10 +12,11 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
+    @note.user = current_user
     if @note.save
       redirect_to notes_path
     else
-      render new
+      render 'new'
     end
   end
 
@@ -25,7 +26,7 @@ class NotesController < ApplicationController
     if @note.update(note_params)
       redirect_to notes_path
     else
-      render edit
+      render 'edit'
     end
   end
 
