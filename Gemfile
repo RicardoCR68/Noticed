@@ -37,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 # Devise for authetication
 gem 'devise'
 
+# Webpacker for ES6
+gem 'webpacker'
+
 # Customization 'n Stuff
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
