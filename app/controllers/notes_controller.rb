@@ -13,7 +13,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     if @note.save
-      redirect_to main_page_path
+      redirect_to notes_path
     else
       render new
     end
@@ -23,7 +23,7 @@ class NotesController < ApplicationController
 
   def update
     if @note.update(note_params)
-      redirect_to main_page_path
+      redirect_to notes_path
     else
       render edit
     end
@@ -32,7 +32,7 @@ class NotesController < ApplicationController
   def destroy
     @note.destroy
 
-    redirect_to main_page_path
+    redirect_to notes_path
   end
 
   private

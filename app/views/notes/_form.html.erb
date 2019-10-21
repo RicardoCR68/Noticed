@@ -1,0 +1,13 @@
+<%= simple_form_for(note) do |f| %>
+
+  <%= f.input :title, as: :string %>
+
+  <%= f.input :description, as: :text %>
+
+  <%= f.input :due_date, as: :date, order: %i[day month year] %>
+
+  <%= f.input :priority, collection: %w[Low Medium High] %>
+
+  <%= f.submit "New Note" %>
+
+<% end %>
