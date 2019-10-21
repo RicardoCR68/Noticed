@@ -16,10 +16,10 @@ class NotesController < ApplicationController
       redirect_to main_page_path
     else
       render new
+    end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @note.update(note_params)
@@ -36,7 +36,6 @@ class NotesController < ApplicationController
   end
 
   private
-
 
   def set_note
     @note = Note.find(params[:id])
