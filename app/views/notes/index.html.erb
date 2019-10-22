@@ -2,31 +2,33 @@
   <%= link_to 'New Note', new_note_path, class: 'btn-primary w-100 my-2' %>
 </div>
 
-<% @notes.each do |note| %>
-  <div class="card">
-    <div class="card-header row justify-content-between">
-      <div class='col-6'>
-        <h5>Due to: <%= note.due_date %></h5>
+<div class="row">
+  <% @notes.each do |note| %>
+    <div class="card col-12 col-sm-6 col-md-4 col-lg-3 ">
+      <div class="card-header row justify-content-between">
+        <div class='col-6'>
+          <h5>Due to: <%= note.due_date %></h5>
+        </div>
+        <div class="options col-6">
+          <%= link_to edit_note_path(note) do %>
+            <i class="fas fa-pen"></i>
+          <% end %>
+          <%= link_to note_path(note), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </div>
       </div>
-      <div class="options col-6">
-        <%= link_to edit_note_path(note) do %>
-          <i class="fas fa-pen"></i>
-        <% end %>
-        <%= link_to note_path(note), method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <i class="fas fa-trash-alt"></i>
-        <% end %>
+      <div class="card-body">
+        <div class="card-title">
+          <%= note.title %>
+        </div>
+        <div class="card-subtitle mb-2 text-muted">
+          <%= note.priority %>
+        </div>
+        <div class="card-text">
+          <%= note.description %>
+        </div>
       </div>
     </div>
-    <div class="card-body">
-      <div class="card-title">
-        <%= note.title %>
-      </div>
-      <div class="card-subtitle mb-2 text-muted">
-        <%= note.priority %>
-      </div>
-      <div class="card-text">
-        <%= note.description %>
-      </div>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
