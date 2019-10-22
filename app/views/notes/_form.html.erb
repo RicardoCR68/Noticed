@@ -8,6 +8,13 @@
 
   <%= f.input :priority, collection: %w[Low Medium High] %>
 
-  <%= f.submit "New Note" %>
+  <div class="row">
+    <div class="col-6">
+      <%= link_to "Cancel", :back, class: 'btn btn-secondary w-100' %>
+    </div>
+    <div class="col-6">
+      <%= f.submit @note.persisted? ? "Update Note" : "New Note", class: 'btn btn-primary w-100' %>
+    </div>
+  </div>
 
 <% end %>

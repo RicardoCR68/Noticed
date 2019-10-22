@@ -3,7 +3,12 @@ class NotesController < ApplicationController
   before_action :set_note, only: %i[edit update destroy]
 
   def index
-    @notes = Note.all
+    if params[:query].present?
+      search_query = 'title ILIKE :query OR description ILIKE :query'
+      @notes = Note.where(search_query, query: "%#{params[:query]}%").order('updated_at DESC').where(user: current_user)
+    else
+      @notes = Note.order('updated_at DESC').where(user: current_user)
+    end
   end
 
   def new

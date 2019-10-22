@@ -45,6 +45,9 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form'
 
+# Passenger
+gem 'passenger', '>= 5.3.2', require: 'phusion_passenger/rack_handler'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
